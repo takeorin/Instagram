@@ -280,7 +280,7 @@
                                 </constraints>
                                 <state key="normal" title="投稿" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="handlePostButton:forEvent:" destination="6Y0-kL-4iD" eventType="touchUpInside" id="bEI-fc-aHJ"/>
+                                    <action selector="handlePostButton:" destination="6Y0-kL-4iD" eventType="touchUpInside" id="OV1-0g-VF5"/>
                                 </connections>
                             </button>
                         </subviews>

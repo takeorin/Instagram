@@ -122,6 +122,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.commentButton.addTarget(self, action:#selector(handleCommentButton(_:forEvent:)), for: .touchUpInside)
         
+        
+        
         return cell
     }
     
@@ -174,7 +176,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
         let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment") as! PostCommentViewController
         
-        commentViewController.postArray = [postData]
+//        commentViewController.postArray = [postData]
+        commentViewController.postArray = postData
+
         
         present(commentViewController, animated: true, completion: nil)
 

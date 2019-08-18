@@ -13,7 +13,8 @@ import SVProgressHUD
 class PostCommentViewController: UIViewController {
     
     //PostData読み込みのための変数定義
-    var postArray: [PostData] = []
+  //  var postArray: [PostData] = []
+    var postArray: PostData!
 
     @IBOutlet weak var commentTextField: UITextField!
     
@@ -21,7 +22,21 @@ class PostCommentViewController: UIViewController {
         
         print(postArray)
         
-        postArray.comment.append(commentTextField)
+        postArray.comment.append(commentTextField.text!)
+        
+        let postRef = Database.database().reference().child(Const.PostPath).child(postArray.id!)
+        let comment = ["comment": postArray.comment]
+        postRef.updateChildValues(comment)
+        
+        
+        
+        
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeViewController
+        
+        present(homeViewController, animated: true, completion: nil)
+
+        
+        
         
         
         
