@@ -20,39 +20,22 @@ class PostCommentViewController: UIViewController {
     
     @IBAction func handlePostButton(_ sender: Any){
         
-        print(postArray)
+        let name = Auth.auth().currentUser?.displayName
+        let combinedText = name! + ": " + commentTextField.text!
         
-        postArray.comment.append(commentTextField.text!)
+        
+   //     postArray.comment.append(commentTextField.text!)
+        
+          postArray.comment.append(combinedText)
         
         let postRef = Database.database().reference().child(Const.PostPath).child(postArray.id!)
         let comment = ["comment": postArray.comment]
         postRef.updateChildValues(comment)
         
-        
-        
-        
         let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeViewController
         
         present(homeViewController, animated: true, completion: nil)
 
-        
-        
-        
-        
-        
-       
-        
-        
-        
-        
-   /*     // postDataに必要な情報を取得しておく
-        let time = Date.timeIntervalSinceReferenceDate
-        let name = Auth.auth().currentUser?.displayName
-        
-        // 辞書を作成してFirebaseに保存する
-        let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["comment": commentTextField.text!,  "time": String(time), "name": name!]
-        postRef.childByAutoId().setValue(postDic)
         
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
@@ -60,12 +43,6 @@ class PostCommentViewController: UIViewController {
         // 全てのモーダルを閉じる
         UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
 
-        */
-        
-        
-        
-        
-        
     }
     
     override func viewDidLoad() {

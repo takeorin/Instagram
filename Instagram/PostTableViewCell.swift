@@ -34,34 +34,14 @@ class PostTableViewCell: UITableViewCell {
         
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         
-    //   self.commentLabel.text = "\(postData.name!) : \(postData.comment)"
-  
-        
-   /*     var comments: String = ""
-        for comment in postData.comment {
-            comments += "\(comment)\n"
-            self.commentLabel.text  = (comments)
-      
-        }  */
-    
-        
-        
-        
      var comments: String = ""
         for comment in postData.comment {
-            comments += "\(comment)\n"
+       //     comments += "\(comment)\n"
+              comments += "\(comment)\n"
+            
             print("comments:\(comments)")
         }
         self.commentLabel.text  = comments
-        
-        
-        
-        
-        
-       
-
-        
-        
         
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
